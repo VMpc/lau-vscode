@@ -23,7 +23,7 @@ Provides **syntax highlighting** and **IntelliSense snippets** for the `.lau` sc
  *Requirements*
  1. npm, comes with NodeJS, install clicking [here](https://nodejs.org/en/download)
  2. git, can be installed clicking [here](https://git-scm.com/install/)
- 3. vsce package, from npm, install it using `npm install -g @vscode/vsce
+ 3. vsce package, from npm, install it using `npm install -g @vscode/vsce`
 
  ## Run these commands in the following order:
  1. `git clone https://github.com/SeaN0X/lau-vscode.git`
