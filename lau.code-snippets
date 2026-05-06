@@ -1,0 +1,646 @@
+{
+  "print": {
+    "prefix": "print",
+    "body": ["print(${1:value})"],
+    "description": "Prints values to the output panel and makes the drone speak. The player can see what the drone says on screen."
+  },
+  "printn": {
+    "prefix": "printn",
+    "body": ["printn(${1:value})"],
+    "description": "Prints only to the output channel (silent — not spoken by drone)."
+  },
+  "req": {
+    "prefix": "req",
+    "body": ["req(${1:module_name}.lau)"],
+    "description": "Includes a previously created .lau module into the project. The system automatically recognizes the file extension and loads the module into memory."
+  },
+  "type": {
+    "prefix": "type",
+    "body": ["type(${1:variable})"],
+    "description": "Returns the type of variable (Number, String, Boolean, Function, etc.) as text."
+  },
+  "pcall": {
+    "prefix": "pcall",
+    "body": ["pcall(${1:function}${2:, ...})"],
+    "description": "Protected call. If the code throws an error, the script will not crash."
+  },
+  "error": {
+    "prefix": "error",
+    "body": ["error(${1:\"message\"})"],
+    "description": "Intentionally stops code and throws a red error message to the output channel."
+  },
+  "tonumber": {
+    "prefix": "tonumber",
+    "body": ["tonumber(${1:value})"],
+    "description": "Converts a string or other value into a number type for math calculations."
+  },
+  "tostring": {
+    "prefix": "tostring",
+    "body": ["tostring(${1:value})"],
+    "description": "Converts any given value (number, Boolean, etc.) into a string format."
+  },
+
+  "drone.move": {
+    "prefix": "drone.move",
+    "body": ["drone.move(Enum.Direction.${1|North,South,East,West|})"],
+    "description": "Moves the drone one unit in the specified direction."
+  },
+  "drone.doFlip": {
+    "prefix": "drone.doFlip",
+    "body": ["drone.doFlip()"],
+    "description": "Makes the drone perform a backflip in the air."
+  },
+  "drone.getPosition": {
+    "prefix": "drone.getPosition",
+    "body": ["varol ${1:x}, ${2:z} = drone.getPosition()"],
+    "description": "Returns the drone's current X and Z coordinates simultaneously via multiple assignment."
+  },
+  "drone.getPositionX": {
+    "prefix": "drone.getPositionX",
+    "body": ["drone.getPositionX()"],
+    "description": "Returns only the numerical X coordinate of the drone."
+  },
+  "drone.getPositionZ": {
+    "prefix": "drone.getPositionZ",
+    "body": ["drone.getPositionZ()"],
+    "description": "Returns only the numerical Z coordinate of the drone."
+  },
+  "drone.plant": {
+    "prefix": "drone.plant",
+    "body": ["drone.plant(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "description": "Plants the specified seed into the soil beneath the drone."
+  },
+  "drone.useItem": {
+    "prefix": "drone.useItem",
+    "body": ["drone.useItem(Enum.Gear.${1|Watering_Can,Fertilizer,Sprinkler|})"],
+    "description": "Uses the specified gear on the current tile to apply its specific effect."
+  },
+  "drone.crop": {
+    "prefix": "drone.crop",
+    "body": ["drone.crop()"],
+    "description": "Collects the crop beneath the drone."
+  },
+  "drone.Harvest": {
+    "prefix": "drone.Harvest",
+    "body": ["drone.Harvest()"],
+    "description": "Collects fruits from fruit-bearing trees."
+  },
+  "drone.canCrop": {
+    "prefix": "drone.canCrop",
+    "body": ["drone.canCrop()"],
+    "description": "Returns true/false whether the crop beneath the drone is suitable for harvesting."
+  },
+  "drone.canHarvest": {
+    "prefix": "drone.canHarvest",
+    "body": ["drone.canHarvest()"],
+    "description": "Checks if the fruit is ready to be collected. Returns true/false."
+  },
+  "drone.getPlant": {
+    "prefix": "drone.getPlant",
+    "body": ["drone.getPlant()"],
+    "description": "Returns an object with Percent, Weight, and HasFruit. If HasFruit is true, fruit values are also included."
+  },
+  "drone.getPlantPercent": {
+    "prefix": "drone.getPlantPercent",
+    "body": ["drone.getPlantPercent()"],
+    "description": "Returns only the numerical value for the plant's growth percentage."
+  },
+  "drone.getPlantWeight": {
+    "prefix": "drone.getPlantWeight",
+    "body": ["drone.getPlantWeight()"],
+    "description": "Returns only the numerical value for the plant's weight."
+  },
+  "drone.getPlantHasFruit": {
+    "prefix": "drone.getPlantHasFruit",
+    "body": ["drone.getPlantHasFruit()"],
+    "description": "Returns true/false indicating if the plant produces fruit."
+  },
+  "drone.getFruit": {
+    "prefix": "drone.getFruit",
+    "body": ["drone.getFruit()"],
+    "description": "Returns fruit data. If the plant does not produce fruit, it returns null."
+  },
+  "drone - check fruit example": {
+    "prefix": "drone.getFruitExample",
+    "body": [
+      "varol hasFruit = drone.getPlantHasFruit()",
+      "if (hasFruit) {",
+      "    varol fruitPer = drone.getFruitPercent()",
+      "    print(\"Fruit is at: \", fruitPer, \"%\")",
+      "}"
+    ],
+    "description": "Example: Check if plant has fruit before getting fruit data."
+  },
+  "drone - random movement example": {
+    "prefix": "drone.randomMoveExample",
+    "body": [
+      "varol randomNumber = math.random(1, 4)",
+      "",
+      "if randomNumber == 1 then",
+      "    drone.move(Enum.Direction.North)",
+      "elseif randomNumber == 2 then",
+      "    drone.move(Enum.Direction.South)",
+      "elseif randomNumber == 3 then",
+      "    drone.move(Enum.Direction.East)",
+      "elseif randomNumber == 4 then",
+      "    drone.move(Enum.Direction.West)",
+      "end"
+    ],
+    "description": "Example: Move the drone in a random direction."
+  },
+
+  "math.random": {
+    "prefix": "math.random",
+    "body": ["math.random(${1:min}, ${2:max})"],
+    "description": "Generates a random integer between the two numbers specified."
+  },
+  "math.round": {
+    "prefix": "math.round",
+    "body": ["math.round(${1:number})"],
+    "description": "Rounds a decimal number to its nearest integer."
+  },
+  "math.abs": {
+    "prefix": "math.abs",
+    "body": ["math.abs(${1:number})"],
+    "description": "Returns the absolute value (positive form) of the number. Ideal for avoiding negative results when calculating distances."
+  },
+  "math.pi": {
+    "prefix": "math.pi",
+    "body": ["math.pi"],
+    "description": "Returns the mathematical constant Pi."
+  },
+
+  "player.getFruitCount": {
+    "prefix": "player.getFruitCount",
+    "body": ["player.getFruitCount()"],
+    "description": "Returns the total number of fruit item types in the inventory."
+  },
+  "player.getInventorySize": {
+    "prefix": "player.getInventorySize",
+    "body": ["player.getInventorysize()"],
+    "description": "Returns the total number of all item types (fruit, seeds, etc.) in the inventory."
+  },
+  "player.getInventory": {
+    "prefix": "player.getInventory",
+    "body": ["player.getInventory()"],
+    "description": "Returns the entire inventory as a list (table)."
+  },
+  "player.getItem": {
+    "prefix": "player.getItem",
+    "body": ["player.getItem(${1:index})"],
+    "description": "Returns the details of the item at the specified inventory index."
+  },
+  "player - item analysis example": {
+    "prefix": "player.getItemExample",
+    "body": [
+      "varol item = player.getItem(${1:1})",
+      "",
+      "if item then",
+      "    if item.Type == \"Seed\" then",
+      "        print(\"Seed Type: \", item.Name)",
+      "        print(\"Amount: \", item.Amount)",
+      "    else",
+      "        print(\"Fruit Name: \", item.Name)",
+      "        print(\"Weight: \", item.Weight)",
+      "    end",
+      "end"
+    ],
+    "description": "Example: Check and analyze an item from the player's inventory."
+  },
+  "player.getTileNumber": {
+    "prefix": "player.getTileNumber",
+    "body": ["player.geTileNumber()"],
+    "description": "Returns the player's land size (Upgrade Level)."
+  },
+  "player.calculateFinalScrap": {
+    "prefix": "player.calculateFinalScrap",
+    "body": ["player.calculateFinalScrap(${1:basePrice})"],
+    "description": "Returns the actual final scrap value earned by applying all active multipliers (friend boosts, etc.)."
+  },
+  "player.scrap": {
+    "prefix": "player.scrap",
+    "body": ["player.scrap()"],
+    "description": "Returns the total amount of scrap the player owns as a number."
+  },
+  "player.alert": {
+    "prefix": "player.alert",
+    "body": ["player.alert(${1:\"message\"})"],
+    "description": "Displays a red system alert on the player's screen."
+  },
+  "player.sent": {
+    "prefix": "player.sent",
+    "body": ["player.sent(${1:\"message\"})"],
+    "description": "Displays a normal system message on the player's screen."
+  },
+  "player - scrap alert example": {
+    "prefix": "player.scrapAlertExample",
+    "body": [
+      "if player.scrap() < ${1:10} then",
+      "    player.alert(\"Insufficient Funds! Drone operations may be stopped.\")",
+      "end"
+    ],
+    "description": "Example: Alert the player when scrap is too low."
+  },
+  "player.chatted event": {
+    "prefix": "player.chatted",
+    "body": [
+      "player.chatted:connect(func(message)",
+      "    ${1:print(\"Player said: \" + message)}",
+      "end)"
+    ],
+    "description": "Event: Triggered when the player types text into the chat box."
+  },
+  "player.input event": {
+    "prefix": "player.input",
+    "body": [
+      "player.input:connect(func(key)",
+      "    ${1:print(\"Key pressed: \" + key)}",
+      "end)"
+    ],
+    "description": "Event: Triggered when the player presses a key. Returns Enum.Keycode.KeyPressed."
+  },
+  "player.getCurrentTile": {
+    "prefix": "player.getCurrentTile",
+    "body": ["varol ${1:x}, ${2:z} = player.getcurrentTile()"],
+    "description": "Returns the grid coordinates (X, Z) of the tile the player is standing on. Returns null if outside the farm area."
+  },
+  "player - location check example": {
+    "prefix": "player.getCurrentTileExample",
+    "body": [
+      "varol ${1:x}, ${2:z} = player.getCurrentTile()",
+      "",
+      "if ${1:x} then",
+      "    print(\"Player is on Tile -> X: \", ${1:x}, \" Z: \", ${2:z})",
+      "else",
+      "    player.alert(\"You are not standing on a tile!\")",
+      "end"
+    ],
+    "description": "Example: Check and display the player's current tile position."
+  },
+  "player.camera": {
+    "prefix": "player.camera",
+    "body": ["player.camera(Enum.Camera.${1|Player,Drone,Base,World|})"],
+    "description": "Changes the target subject the camera is looking at. Default is Player."
+  },
+  "player - camera follow drone example": {
+    "prefix": "player.cameraFollowDroneExample",
+    "body": [
+      "player.camera(Enum.Camera.Drone)",
+      "player.cameraMode(Enum.CameraMode.Follow)",
+      "",
+      "-- Reset back to normal player view",
+      "-- player.camera(Enum.Camera.Player)",
+      "-- player.cameraMode(Enum.CameraMode.Classic)"
+    ],
+    "description": "Example: Switch the camera to follow the drone dynamically."
+  },
+
+  "market.getSeedStockTime": {
+    "prefix": "market.getSeedStockTime",
+    "body": ["market.getSeedStockTime()"],
+    "description": "Returns the time remaining until seed stocks refresh, in seconds."
+  },
+  "market.getSeedStock": {
+    "prefix": "market.getSeedStock",
+    "body": ["market.getSeedStock()"],
+    "description": "Returns the current seed stocks as a list (contains Seed Enum and Amount)."
+  },
+  "market.getSeedPrice": {
+    "prefix": "market.getSeedPrice",
+    "body": ["market.getSeedPrice(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "description": "Returns the purchase price of the specified seed."
+  },
+  "market.buySeed": {
+    "prefix": "market.buySeed",
+    "body": ["market.buySeed(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "description": "Purchases the specified seed. Returns true if successful."
+  },
+  "market - smart seed purchase example": {
+    "prefix": "market.buySeedExample",
+    "body": [
+      "varol stocks = market.getSeedStock()",
+      "varol price = market.getSeedPrice(Enum.Seed.${1:AppleTree})",
+      "",
+      "if market.getSeedStockTime() > 10 and player.scrap() >= price then",
+      "    market.buySeed(Enum.Seed.${1:AppleTree})",
+      "    player.alert(\"${1:Apple} seed purchased!\")",
+      "end"
+    ],
+    "description": "Example: Check stocks and buy a seed if the budget allows."
+  },
+  "market.getGearStockTime": {
+    "prefix": "market.getGearStockTime",
+    "body": ["market.getGearStockTime()"],
+    "description": "Returns the time remaining until gear stock refreshes, in seconds."
+  },
+  "market.getGearStock": {
+    "prefix": "market.getGearStock",
+    "body": ["market.getGearStock()"],
+    "description": "Returns the current gear stock as a list (contains Gear Enum and Amount)."
+  },
+  "market.getGearPrice": {
+    "prefix": "market.getGearPrice",
+    "body": ["market.getGearPrice(Enum.Gear.${1:GearName})"],
+    "description": "Returns the purchase price of the specified gear."
+  },
+  "market.buyGear": {
+    "prefix": "market.buyGear",
+    "body": ["market.buyGear(Enum.Gear.${1|Watering_Can,Fertilizer,Sprinkler|})"],
+    "description": "Purchases the specified gear. Returns true if successful."
+  },
+  "market.whatValue": {
+    "prefix": "market.whatValue",
+    "body": ["market.whatValue(${1:inventorySlot})"],
+    "description": "Calculates the sale value of the product (e.g. fruit) in the specified inventory slot number."
+  },
+  "market.sellItem": {
+    "prefix": "market.sellItem",
+    "body": ["market.sellItem(${1:inventorySlot})"],
+    "description": "Sells the item in the specified inventory slot."
+  },
+  "market.sellAllItem": {
+    "prefix": "market.sellAllItem",
+    "body": ["market.sellAllItem()"],
+    "description": "Disposes of all sellable items in the inventory at once."
+  },
+  "market - profit/loss check example": {
+    "prefix": "market.sellItemExample",
+    "body": [
+      "varol value = market.whatValue(${1:1})",
+      "",
+      "if value > ${2:100} then",
+      "    market.sellItem(${1:1})",
+      "    player.alert(\"Valuable fruit sold: \" + value + \" SC\")",
+      "else",
+      "    player.alert(\"Price too low, holding...\")",
+      "end"
+    ],
+    "description": "Example: Check the value of a fruit and sell only if it's profitable."
+  },
+  "market.changedSeedStock event": {
+    "prefix": "market.changedSeedStock",
+    "body": [
+      "market.changedSeedStock:connect(func()",
+      "    ${1:player.alert(\"Market seed stocks refreshed! Check them out now.\")}",
+      "end)"
+    ],
+    "description": "Event: Triggered when seed stocks are updated (when new seeds arrive)."
+  },
+  "market.changedGearStock event": {
+    "prefix": "market.changedGearStock",
+    "body": [
+      "market.changedGearStock:connect(func()",
+      "    ${1:player.alert(\"New gears have arrived at the market!\")}",
+      "end)"
+    ],
+    "description": "Event: Triggered when gear stocks are updated (when new gears arrive)."
+  },
+  "market - stock tracker example": {
+    "prefix": "market.stockTrackerExample",
+    "body": [
+      "market.changedSeedStock:connect(func()",
+      "    player.alert(\"Market seed stocks refreshed! Check them out now.\")",
+      "end)",
+      "",
+      "market.changedGearStock:connect(func()",
+      "    player.alert(\"New gears have arrived at the market!\")",
+      "end)"
+    ],
+    "description": "Example: Track both seed and gear stock refresh events."
+  },
+
+  "game.weather": {
+    "prefix": "game.weather",
+    "body": ["game.weather()"],
+    "description": "Returns the name of the current weather condition as a string (e.g. 'Rain', 'Thunder')."
+  },
+  "game.weatherDuration": {
+    "prefix": "game.weatherDuration",
+    "body": ["game.weatherDuration()"],
+    "description": "Returns the remaining time for the current weather condition, in seconds."
+  },
+  "game - weather check example": {
+    "prefix": "game.weatherExample",
+    "body": [
+      "varol currentWeather = game.weather()",
+      "",
+      "if currentWeather == \"Rain\" then",
+      "    print(\"It's raining! No need to water the crops.\")",
+      "else",
+      "    print(\"Weather is \" + currentWeather)",
+      "    print(\"Time remaining: \" + game.weatherDuration() + \" seconds.\")",
+      "end"
+    ],
+    "description": "Example: Check current weather and respond accordingly."
+  },
+  "game.changedWeather event": {
+    "prefix": "game.changedWeather",
+    "body": [
+      "game.changedWeather:connect(func()",
+      "    ${1:player.alert(\"The weather has changed! Current weather: \" + game.weather())}",
+      "end)"
+    ],
+    "description": "Event: Triggered automatically when weather changes in the game world."
+  },
+  "game.rejoin": {
+    "prefix": "game.rejoin",
+    "body": ["game.rejoin()"],
+    "description": "Instantly disconnects and reconnects to the same server. Useful for fixing desyncs."
+  },
+
+  "task.wait": {
+    "prefix": "task.wait",
+    "body": ["task.wait(${1:1})"],
+    "description": "Pauses code execution for the specified number of seconds."
+  },
+
+  "string.upper": {
+    "prefix": "string.upper",
+    "body": ["string.upper(${1:text})"],
+    "description": "Converts all characters in the text to UPPER case."
+  },
+  "string.lower": {
+    "prefix": "string.lower",
+    "body": ["string.lower(${1:text})"],
+    "description": "Converts all characters in the text to lower case."
+  },
+  "string.len": {
+    "prefix": "string.len",
+    "body": ["string.len(${1:text})"],
+    "description": "Counts how many characters are in the text. Can also be used with the '#' operator (e.g. #message)."
+  },
+  "string.sub": {
+    "prefix": "string.sub",
+    "body": ["string.sub(${1:text}, ${2:start}, ${3:end})"],
+    "description": "Cuts and retrieves a specific part of the text. If end is not provided, takes until the end."
+  },
+  "string.find": {
+    "prefix": "string.find",
+    "body": ["string.find(${1:text}, ${2:\"word\"})"],
+    "description": "Searches within the text. If the word is found, returns it; otherwise returns null."
+  },
+  "string - manipulation example": {
+    "prefix": "string.manipulationExample",
+    "body": [
+      "varol message = \"${1:Hello Lau}\"",
+      "",
+      "-- Case and Length",
+      "print(string.upper(message))",
+      "print(\"Character Count: \" + string.len(message))",
+      "",
+      "-- Cut a specific part (from 1st to 5th character)",
+      "varol sliced = string.sub(message, 1, 5)",
+      "print(sliced)",
+      "",
+      "-- Word Search",
+      "if string.find(message, \"${2:Lau}\") then",
+      "    print(\"The word ${2:Lau} is in the message!\")",
+      "end"
+    ],
+    "description": "Example: Demonstrates upper, len, sub, and find string operations."
+  },
+
+  "Enum.Seed": {
+    "prefix": "Enum.Seed",
+    "body": ["Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|}"],
+    "description": "Seed enum: Pick a seed type."
+  },
+  "Enum.Seed.Wheat": { "prefix": "Enum.Seed.Wheat", "body": ["Enum.Seed.Wheat"], "description": "Seed enum: Wheat" },
+  "Enum.Seed.Bamboo": { "prefix": "Enum.Seed.Bamboo", "body": ["Enum.Seed.Bamboo"], "description": "Seed enum: Bamboo" },
+  "Enum.Seed.Coconut": { "prefix": "Enum.Seed.Coconut", "body": ["Enum.Seed.Coconut"], "description": "Seed enum: Coconut" },
+  "Enum.Seed.Mushroom": { "prefix": "Enum.Seed.Mushroom", "body": ["Enum.Seed.Mushroom"], "description": "Seed enum: Mushroom" },
+  "Enum.Seed.Tomato": { "prefix": "Enum.Seed.Tomato", "body": ["Enum.Seed.Tomato"], "description": "Seed enum: Tomato" },
+  "Enum.Seed.Bush": { "prefix": "Enum.Seed.Bush", "body": ["Enum.Seed.Bush"], "description": "Seed enum: Bush" },
+  "Enum.Seed.Pumpkin": { "prefix": "Enum.Seed.Pumpkin", "body": ["Enum.Seed.Pumpkin"], "description": "Seed enum: Pumpkin" },
+  "Enum.Seed.Pepper": { "prefix": "Enum.Seed.Pepper", "body": ["Enum.Seed.Pepper"], "description": "Seed enum: Pepper" },
+  "Enum.Seed.Cacao": { "prefix": "Enum.Seed.Cacao", "body": ["Enum.Seed.Cacao"], "description": "Seed enum: Cacao" },
+  "Enum.Seed.Glttch": { "prefix": "Enum.Seed.Glttch", "body": ["Enum.Seed.Glttch"], "description": "Seed enum: Glttch" },
+  "Enum.Seed.Apple": { "prefix": "Enum.Seed.Apple", "body": ["Enum.Seed.Apple"], "description": "Seed enum: Apple" },
+  "Enum.Seed.Lotus": { "prefix": "Enum.Seed.Lotus", "body": ["Enum.Seed.Lotus"], "description": "Seed enum: Lotus" },
+  "Enum.Seed.Lemon": { "prefix": "Enum.Seed.Lemon", "body": ["Enum.Seed.Lemon"], "description": "Seed enum: Lemon" },
+  "Enum.Seed.Onion": { "prefix": "Enum.Seed.Onion", "body": ["Enum.Seed.Onion"], "description": "Seed enum: Onion" },
+  "Enum.Seed.Tree": { "prefix": "Enum.Seed.Tree", "body": ["Enum.Seed.Tree"], "description": "Seed enum: Tree" },
+  "Enum.Seed.Pineapple": { "prefix": "Enum.Seed.Pineapple", "body": ["Enum.Seed.Pineapple"], "description": "Seed enum: Pineapple" },
+  "Enum.Seed.Blueberry": { "prefix": "Enum.Seed.Blueberry", "body": ["Enum.Seed.Blueberry"], "description": "Seed enum: Blueberry" },
+  "Enum.Seed.Carrot": { "prefix": "Enum.Seed.Carrot", "body": ["Enum.Seed.Carrot"], "description": "Seed enum: Carrot" },
+  "Enum.Seed.Corn": { "prefix": "Enum.Seed.Corn", "body": ["Enum.Seed.Corn"], "description": "Seed enum: Corn" },
+  "Enum.Seed.Cactus": { "prefix": "Enum.Seed.Cactus", "body": ["Enum.Seed.Cactus"], "description": "Seed enum: Cactus" },
+  "Enum.Seed.Strawberry": { "prefix": "Enum.Seed.Strawberry", "body": ["Enum.Seed.Strawberry"], "description": "Seed enum: Strawberry" },
+  "Enum.Seed.Watermelon": { "prefix": "Enum.Seed.Watermelon", "body": ["Enum.Seed.Watermelon"], "description": "Seed enum: Watermelon" },
+  "Enum.Seed.Grape": { "prefix": "Enum.Seed.Grape", "body": ["Enum.Seed.Grape"], "description": "Seed enum: Grape" },
+  "Enum.Seed.Potato": { "prefix": "Enum.Seed.Potato", "body": ["Enum.Seed.Potato"], "description": "Seed enum: Potato" },
+  "Enum.Seed.Banana": { "prefix": "Enum.Seed.Banana", "body": ["Enum.Seed.Banana"], "description": "Seed enum: Banana" },
+
+  "Enum.Direction.North": {
+    "prefix": "Enum.Direction.North",
+    "body": ["Enum.Direction.North"],
+    "description": "Direction enum: North"
+  },
+  "Enum.Direction.South": {
+    "prefix": "Enum.Direction.South",
+    "body": ["Enum.Direction.South"],
+    "description": "Direction enum: South"
+  },
+  "Enum.Direction.East": {
+    "prefix": "Enum.Direction.East",
+    "body": ["Enum.Direction.East"],
+    "description": "Direction enum: East"
+  },
+  "Enum.Direction.West": {
+    "prefix": "Enum.Direction.West",
+    "body": ["Enum.Direction.West"],
+    "description": "Direction enum: West"
+  },
+  "Enum.Camera.Player": {
+    "prefix": "Enum.Camera.Player",
+    "body": ["Enum.Camera.Player"],
+    "description": "Camera enum: Focus on Player"
+  },
+  "Enum.Camera.Drone": {
+    "prefix": "Enum.Camera.Drone",
+    "body": ["Enum.Camera.Drone"],
+    "description": "Camera enum: Focus on Drone"
+  },
+  "Enum.Camera.World": {
+    "prefix": "Enum.Camera.World",
+    "body": ["Enum.Camera.World"],
+    "description": "Camera enum: World view"
+  },
+  "Enum.Camera.Base": {
+    "prefix": "Enum.Camera.Base",
+    "body": ["Enum.Camera.Base"],
+    "description": "Camera enum: Focus on Base"
+  },
+  "Enum.Gear.Watering_Can": {
+    "prefix": "Enum.Gear.Watering_Can",
+    "body": ["Enum.Gear.Watering_Can"],
+    "description": "Gear enum: Watering Can"
+  },
+  "Enum.Gear.Fertilizer": {
+    "prefix": "Enum.Gear.Fertilizer",
+    "body": ["Enum.Gear.Fertilizer"],
+    "description": "Gear enum: Fertilizer"
+  },
+  "Enum.Gear.Sprinkler": {
+    "prefix": "Enum.Gear.Sprinkler",
+    "body": ["Enum.Gear.Sprinkler"],
+    "description": "Gear enum: Sprinkler"
+  },
+
+  "varol declaration": {
+    "prefix": "varol",
+    "body": ["varol ${1:name} = ${2:value}"],
+    "description": "Declare a local variable using the 'varol' keyword."
+  },
+  "if statement": {
+    "prefix": "if",
+    "body": [
+      "if ${1:condition} then",
+      "    ${2}",
+      "end"
+    ],
+    "description": "Basic if statement."
+  },
+  "if-else statement": {
+    "prefix": "ifelse",
+    "body": [
+      "if ${1:condition} then",
+      "    ${2}",
+      "else",
+      "    ${3}",
+      "end"
+    ],
+    "description": "If-else statement."
+  },
+  "if-elseif-else statement": {
+    "prefix": "ifelseif",
+    "body": [
+      "if ${1:condition} then",
+      "    ${2}",
+      "elseif ${3:condition2} then",
+      "    ${4}",
+      "else",
+      "    ${5}",
+      "end"
+    ],
+    "description": "If-elseif-else statement."
+  },
+  "func": {
+    "prefix": "func",
+    "body": [
+      "func ${1:name}(${2:args})",
+      "    ${3}",
+      "end"
+    ],
+    "description": "Define a function."
+  },
+  "connect event": {
+    "prefix": "connect",
+    "body": [
+      "${1:event}:connect(func(${2:args})",
+      "    ${3}",
+      "end)"
+    ],
+    "description": "Connect a handler function to an event."
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "__metadata": {
+    "id": "lau-language-support",
+    "publisherId": "sean0x",
+    "publisherDisplayName": "sean0x"
+  },
+  "name": "lau-language-support",
+  "displayName": "LAU Language Support",
+  "description": "Syntax highlighting, snippets, and IntelliSense for the LAU scripting language",
+  "version": "1.0.0",
+  "publisher": "sean0x",
+  "engines": {
+    "vscode": "*"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "lau",
+        "aliases": ["LAU", "lau"],
+        "extensions": [".lau", ".laum"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "lau",
+        "scopeName": "source.lau",
+        "path": "./syntaxes/lau.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "lau",
+        "path": "./lau.code-snippets"
+      }
+    ]
+  }
+}
