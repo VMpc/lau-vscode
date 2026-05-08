@@ -39,6 +39,16 @@
     "body": ["tostring(${1:value})"],
     "description": "Converts any given value (number, Boolean, etc.) into a string format."
   },
+  "clear": {
+    "prefix": "clear",
+    "body": ["print()"],
+    "description": "Clears the output panel."
+  },
+  "inpairs": {
+    "prefix": "inpairs",
+    "body": ["inapirs(${1:list})"],
+    "description": "using the 'for k,v in pairs(list) do' structure, you can sequentially read each key (k) and value (v) inside the list."
+  },
 
   
 
@@ -603,6 +613,33 @@
     ],
     "description": "Example: Demonstrates upper, len, sub, and find string operations."
   },
+
+  "list.insert": {
+    "prefix": "list.insert",
+    "body": ["list.insert(${1:list}, ${2:value})"],
+    "description": "Adds a new element to the end of the list."
+  },
+  "list.remove": {
+    "prefix": "list.remove",
+    "body": ["list.remove(${1:list}, ${2:index})"],
+    "description": "Deletes the element at the specified index and shifts the following elements forward."
+  },
+  "list.clear": {
+    "prefix": "list.clear",
+    "body": ["list.clear(${1:list})"],
+    "description": "Completely clears all elements in the list at once."
+  },
+  "list.check": {
+    "prefix": "list.check",
+    "body": ["list.check(${1:list})"],
+    "description": "Quickly checks if a list has any elements. returns 'true' if it has any content (e.g., {1,2}) and 'false' if it is empty ({})."
+  },
+  "list.find": {
+    "prefix": "list.find",
+    "body": ["list.find(${1:list}, ${2:value})"],
+    "description": "Searches for a piece of data within the list. if found, it returns the index (number) of that data; if not found, it returns 'null'."
+  },
+
 
   "Enum.Seed": {
     "prefix": "Enum.Seed",
