@@ -40,6 +40,45 @@
     "description": "Converts any given value (number, Boolean, etc.) into a string format."
   },
 
+  
+
+  "droneV2.doBig": {
+    "prefix": "droneV2.doBig",
+    "body": ["droneV2.doBig()"],
+    "description": "Makes the drone become bigger for a small amount of time, ideal for signaling."
+  },
+  "droneV2.doSpin": {
+    "prefix": "droneV2.doSpin",
+    "body": ["droneV2.doSpin()"],
+    "description": "Makes the drone spin for a small amount of time, ideal for signaling."
+  },
+  "droneV2.doWobble": {
+    "prefix": "droneV2.doWobble",
+    "body": ["droneV2.doWobble()"],
+    "description": "Makes the drone wobble for a small time, ideal for signaling."
+  },
+  "droneV2.goto": {
+    "prefix": "droneV2.move",
+    "body": ["droneV2.move(${1:x},${2:y})"],
+    "description": "Makes the drone move to the provided X and Y coordinates in a single step."
+  },
+  "droneV2.isLocked": {
+    "prefix": "droneV2.isLocked",
+    "body": ["droneV2.isLocked()"],
+    "description": "Returns a boolean indicating if the plant below the drone is locked from being cropped/harvested/swapped"
+  },
+  "droneV2.lock": {
+    "prefix": "droneV2.lock",
+    "body": ["droneV2.lock()"],
+    "description": "Blocks the plant below the drone from being cropped/harvested/swapped, the lock is persistent through executions. drone.canCrop(), drone.canHarvest() will also return false"
+  },
+  "droneV2.unlock": {
+    "prefix": "droneV2.unlock",
+    "body": ["droneV2.unlock()"],
+    "description": "Allows the plant below to be cropped/harvested/swapped, the unlock is persistent through executions."
+  },
+
+
   "drone.move": {
     "prefix": "drone.move",
     "body": ["drone.move(Enum.Direction.${1|North,South,East,West|})"],
@@ -149,6 +188,27 @@
     "description": "Example: Move the drone in a random direction."
   },
 
+  "http.post": {
+    "prefix": "http.post",
+    "body": ["http.post(${1:url}, http.jsonEncode(${2:structure}))"],
+    "description": "Creates a http POST request with the provided string and returns the result."
+  },
+  "http.get": {
+    "prefix": "http.get",
+    "body": ["http.get(${1:url})"],
+    "description": "Creates a http GET request to the provided URL and returns the result."
+  },
+  "http.jsonEncode": {
+    "prefix": "http.jsonEncode",
+    "body": ["http.jsonEncode(${1:structure})"],
+    "description": "Converts an structure to a JSON string"
+  },
+  "http.jsonDecode": {
+    "prefix": "http.jsonEncode",
+    "body": ["http.jsonEncode(${1:string})"],
+    "description": "Converts an JSON string to a structure"
+  },
+
   "math.random": {
     "prefix": "math.random",
     "body": ["math.random(${1:min}, ${2:max})"],
@@ -169,6 +229,47 @@
     "body": ["math.pi"],
     "description": "Returns the mathematical constant Pi."
   },
+
+  "playerV2.boughtGear event": {
+    "prefix": "playerV2.boughtGear",
+    "body": [
+      "playerV2.boughtGear:connect(func(gear)",
+      "   if (gear==Enum.Gear.Fertilizer) then",
+      "       ${1:print(\"Player bought one fertilizer.\")}",
+      "   end",
+      "end)"
+    ],
+    "description": "Triggered when the player buy a Gear, returns an Enum.Gear."
+  },
+  "playerV2.boughtSeed event": {
+    "prefix": "playerV2.boughtSeed",
+    "body": [
+      "playerV2.boughtSeed:connect(func(seed)",
+      "   if (seed==Enum.Seed.Wheat) then",
+      "       ${1:print(\"Player bought one seed.\")}",
+      "   end",
+      "end)"
+    ],
+    "description": "Event: Triggered when the player buy a Seed, returns an Enum.Seed."
+  },
+  "playerV2.clicked event": {
+    "prefix": "playerV2.clicked",
+    "body": [
+      "playerV2.clicked:connect(func(click)",
+      "   if (click==Enum.ClickType.Right) then",
+      "       ${1:print(\"Player clicked the right Button :O \")}",
+      "   end",
+      "end)"
+    ],
+    "description": "Event: Triggered when the player clicks on the screen, does not work if clicked on in-game buttons, returns an Enum.ClickType."
+  },
+  "playerV2.getGift": {
+    "prefix": "playerV2.getGift",
+    "body": ["playerV2.getGift()"],
+    "description": "Redeems the daily gift"
+  },
+
+
 
   "player.getFruitCount": {
     "prefix": "player.getFruitCount",
@@ -295,6 +396,9 @@
     "description": "Example: Switch the camera to follow the drone dynamically."
   },
 
+
+
+  
   "market.getSeedStockTime": {
     "prefix": "market.getSeedStockTime",
     "body": ["market.getSeedStockTime()"],
@@ -586,6 +690,22 @@
     "body": ["Enum.Gear.Sprinkler"],
     "description": "Gear enum: Sprinkler"
   },
+  "Enum.ClickType.Right": {
+    "prefix": "Enum.ClickType.Right",
+    "body": ["Enum.ClickType.Right"],
+    "description": "ClickType enum: Right"
+  },
+  "Enum.ClickType.Mid": {
+    "prefix": "Enum.ClickType.Mid",
+    "body": ["Enum.ClickType.Mid"],
+    "description": "ClickType enum: Mid"
+  },
+  "Enum.ClickType.Left": {
+    "prefix": "Enum.ClickType.Left",
+    "body": ["Enum.ClickType.Left"],
+    "description": "ClickType enum: Left"
+  },
+
 
   "varol declaration": {
     "prefix": "varol",
