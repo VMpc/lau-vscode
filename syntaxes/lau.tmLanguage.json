@@ -89,8 +89,16 @@
           "match": "\\b(drone)\\.(move|doFlip|getPosition|getPositionX|getPositionZ|plant|useItem|crop|Harvest|canCrop|canHarvest|getPlant|getPlantPercent|getPlantWeight|getPlantHasFruit|getFruit|getFruitPercent)\\b"
         },
         {
+          "name": "support.function.droneV2.lau",
+          "match": "\\b(droneV2)\\.(doBig|doSpin|doWobble|goto|isLocked|lock|unlock)\\b"
+        },
+        {
           "name": "support.function.player.lau",
           "match": "\\b(player)\\.(getFruitCount|getInventorysize|getInventory|getItem|geTileNumber|calculateFinalScrap|scrap|alert|sent|chatted|input|getcurrentTile|getCurrentTile|camera|cameraMode)\\b"
+        },
+        {
+          "name": "support.function.playerV2.lau",
+          "match": "\\b(playerV2)\\.(boughtGear|boughtSeed|clicked|getGift)\\b"
         },
         {
           "name": "support.function.market.lau",
@@ -126,11 +134,11 @@
       "patterns": [
         {
           "name": "support.class.enum.lau",
-          "match": "\\b(Enum)\\.(Direction|Seed|Gear|Camera|CameraMode|Keycode)\\b"
+          "match": "\\b(Enum)\\.(Direction|Seed|Gear|Camera|CameraMode|Keycode|ClickType)\\b"
         },
         {
           "name": "support.constant.enum.value.lau",
-          "match": "\\b(Enum)\\.(Direction|Seed|Gear|Camera|CameraMode|Keycode)\\.(\\w+)\\b",
+          "match": "\\b(Enum)\\.(Direction|Seed|Gear|Camera|CameraMode|Keycode|ClickType)\\.(\\w+)\\b",
           "captures": {
             "3": { "name": "variable.other.enummember.lau" }
           }
