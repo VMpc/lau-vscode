@@ -4,6 +4,7 @@
     "publisherId": "sean0x",
     "publisherDisplayName": "sean0x"
   },
+  "icon": "./icon.png",
   "name": "lau-language-support",
   "displayName": "LAU Language Support",
   "description": "Syntax highlighting, snippets, and IntelliSense for the LAU scripting language",
