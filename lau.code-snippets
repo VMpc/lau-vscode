@@ -46,7 +46,7 @@
   },
   "inpairs": {
     "prefix": "inpairs",
-    "body": ["inapirs(${1:list})"],
+    "body": ["inpairs(${1:list})"],
     "description": "using the 'for k,v in pairs(list) do' structure, you can sequentially read each key (k) and value (v) inside the list."
   },
 
@@ -372,7 +372,7 @@
   },
   "player.getCurrentTile": {
     "prefix": "player.getCurrentTile",
-    "body": ["varol ${1:x}, ${2:z} = player.getcurrentTile()"],
+    "body": ["player.getcurrentTile()"],
     "description": "Returns the grid coordinates (X, Z) of the tile the player is standing on. Returns null if outside the farm area."
   },
   "player - location check example": {
