@@ -120,8 +120,8 @@
     "description": "Swaps positions with the plant (or empty space) on the adjacent tile in the specified direction. The drone moves to the target tile, and the plant moves to the drone's previous location."
   },
   "droneV2.goto": {
-    "prefix": "droneV2.move",
-    "body": ["droneV2.move(${1:x},${2:y})"],
+    "prefix": "droneV2.goto",
+    "body": ["droneV2.goto(${1:x},${2:y})"],
     "description": "Makes the drone move to the provided X and Y coordinates in a single step."
   },
   "droneV2.isLocked": {
