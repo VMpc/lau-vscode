@@ -82,7 +82,7 @@
       "patterns": [
         {
           "name": "support.function.drone.lau",
-          "match": "\\b(drone)\\.(move|doFlip|getPosition|getPositionX|getPositionZ|plant|useItem|crop|Harvest|canCrop|canHarvest|getPlant|getPlantPercent|getPlantWeight|getPlantHasFruit|getFruit|getFruitPercent)\\b"
+          "match": "\\b(drone)\\.(move|doFlip|getPosition|getPositionX|getPositionZ|plant|useItem|crop|harvest|canCrop|canHarvest|getPlant|getPlantPercent|getPlantWeight|getPlantHasFruit|getFruit|getFruitPercent)\\b"
         },
         {
           "name": "support.function.droneV2.lau",
