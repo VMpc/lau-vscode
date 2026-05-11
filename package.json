@@ -8,7 +8,7 @@
   "name": "lau-language-support",
   "displayName": "LAU Language Support",
   "description": "Syntax highlighting, snippets, and IntelliSense for the LAU scripting language",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "sean0x",
   "engines": {
     "vscode": "*"
