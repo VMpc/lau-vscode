@@ -181,9 +181,9 @@
     "body": ["drone.crop()"],
     "description": "Collects the crop beneath the drone."
   },
-  "drone.Harvest": {
-    "prefix": "drone.Harvest",
-    "body": ["drone.Harvest()"],
+  "drone.harvest": {
+    "prefix": "drone.harvest",
+    "body": ["drone.harvest()"],
     "description": "Collects fruits from fruit-bearing trees."
   },
   "drone.canCrop": {
