@@ -49,23 +49,75 @@
     "body": ["inpairs(${1:list})"],
     "description": "using the 'for k,v in pairs(list) do' structure, you can sequentially read each key (k) and value (v) inside the list."
   },
+  "colorRgb": {
+    "prefix": "colorRgb",
+    "body": ["colorRgb(${1:r},${2:g},${3:b})"],
+    "description": "Creates a Color value using Red, Green and Blue channels. Each value must be a number between 0 and 255."
+  },
+  "colorHex": {
+    "prefix": "colorHex",
+    "body": ["colorHex(${1:hexString})"],
+    "description": "Creates a color value from a 6-character Hexadecimal string. You can use it with or without the '#' symbol ()e.g., '#FF5733' or 'FF5733'"
+  },
 
+
+  "game.uptime": {
+    "prefix": "game.uptime",
+    "body": ["game.uptime"],
+    "description": "Returns the total time the server has been running in seconds (Property, no parentheses)."
+  },
+  "game.version": {
+    "prefix": "game.version",
+    "body": ["game.version"],
+    "description": "Returns the current version of the game (Property, no parentheses)."
+  },
+  "game.lauversion": {
+    "prefix": "game.lauversion",
+    "body": ["game.lauversion"],
+    "description": "Returns the current version of the Lau engine running your code (Property, no parentheses)."
+  },
+  "game.players": {
+    "prefix": "game.players",
+    "body": ["game.players()"],
+    "description": "Returns a list of all currently connected players. Each entry contains the player's Name, DisplayName, and Scrap amount."
+  },
   
+  "data.save": {
+    "prefix": "data.save",
+    "body": ["data.save(${1:slotNo}, ${2:list})"],
+    "description": "Permanently saves a list you specify to the cloud. Returns true if successful."
+  },
+  "data.load": {
+    "prefix": "data.load",
+    "body": ["data.load(${1:slotNo})"],
+    "description": "Restores data you previously saved. Returns 'null' if the slot is empty."
+  },
+  "data.clear": {
+    "prefix": "data.clear",
+    "body": ["data.clear(${1:slotNo})"],
+    "description": "Permanently deletes all data in the specified slot."
+  },
+
 
   "droneV2.doBig": {
     "prefix": "droneV2.doBig",
     "body": ["droneV2.doBig()"],
-    "description": "Makes the drone become bigger for a small amount of time, ideal for signaling."
+    "description": "A Special animation that makes the drone appear to 'expand' briefly."
   },
   "droneV2.doSpin": {
     "prefix": "droneV2.doSpin",
     "body": ["droneV2.doSpin()"],
-    "description": "Makes the drone spin for a small amount of time, ideal for signaling."
+    "description": "Makes the drone perform a 360-degree spin."
   },
   "droneV2.doWobble": {
     "prefix": "droneV2.doWobble",
     "body": ["droneV2.doWobble()"],
-    "description": "Makes the drone wobble for a small time, ideal for signaling."
+    "description": "Makes the drone perform a tilting 'wobble' animation"
+  },
+  "droneV2.swap": {
+    "prefix": "droneV2.swap",
+    "body": ["droneV2.swap(${1:Enum.Direction}})"],
+    "description": "Swaps positions with the plant (or empty space) on the adjacent tile in the specified direction. The drone moves to the target tile, and the plant moves to the drone's previous location."
   },
   "droneV2.goto": {
     "prefix": "droneV2.move",
@@ -75,17 +127,17 @@
   "droneV2.isLocked": {
     "prefix": "droneV2.isLocked",
     "body": ["droneV2.isLocked()"],
-    "description": "Returns a boolean indicating if the plant below the drone is locked from being cropped/harvested/swapped"
+    "description": "Checks the status of the plant beneath the drone and returns 'true' if it is locked."
   },
   "droneV2.lock": {
     "prefix": "droneV2.lock",
     "body": ["droneV2.lock()"],
-    "description": "Blocks the plant below the drone from being cropped/harvested/swapped, the lock is persistent through executions. drone.canCrop(), drone.canHarvest() will also return false"
+    "description": "Locks the plant directly beneath the drone. Locked plants are IMMOVABLE and PROTECTED. They cannot be harvested, cropped, or swapped. Functions like 'canCrop' and 'canHarvest' will always return 'false."
   },
   "droneV2.unlock": {
     "prefix": "droneV2.unlock",
     "body": ["droneV2.unlock()"],
-    "description": "Allows the plant below to be cropped/harvested/swapped, the unlock is persistent through executions."
+    "description": "Unlock the plant beneath the drone, restoring its ability to be harvested, cropped or swapped."
   },
 
 
@@ -197,26 +249,26 @@
     ],
     "description": "Example: Move the drone in a random direction."
   },
-
+  
   "http.post": {
     "prefix": "http.post",
     "body": ["http.post(${1:url}, http.jsonEncode(${2:structure}))"],
-    "description": "Creates a http POST request with the provided string and returns the result."
+    "description": "Sends a POST request with a string data to a whitelisted URL."
   },
   "http.get": {
     "prefix": "http.get",
     "body": ["http.get(${1:url})"],
-    "description": "Creates a http GET request to the provided URL and returns the result."
+    "description": "Sends a GET request to a whitelisted URL and returns the response as a string."
   },
   "http.jsonEncode": {
     "prefix": "http.jsonEncode",
     "body": ["http.jsonEncode(${1:structure})"],
-    "description": "Converts an structure to a JSON string"
+    "description": "Converts a Lau List into a JSON  string."
   },
   "http.jsonDecode": {
     "prefix": "http.jsonEncode",
     "body": ["http.jsonEncode(${1:string})"],
-    "description": "Converts an JSON string to a structure"
+    "description": "Converts a JSON string into a Lau List."
   },
 
   "math.random": {
@@ -276,7 +328,7 @@
   "playerV2.getGift": {
     "prefix": "playerV2.getGift",
     "body": ["playerV2.getGift()"],
-    "description": "Redeems the daily gift"
+    "description": "Attempts to claim the daily login gift. Displays a notification and opens the gift menu if successful."
   },
 
 
@@ -285,6 +337,11 @@
     "prefix": "player.getFruitCount",
     "body": ["player.getFruitCount()"],
     "description": "Returns the total number of fruit item types in the inventory."
+  },
+  "player.getFruitCapacity": {
+    "prefix": "player.getFruitCapacity",
+    "body": ["player.getFruitCapacity()"],
+    "description": "Returns the max number of fruit items types in the inventory"
   },
   "player.getInventorySize": {
     "prefix": "player.getInventorySize",
@@ -393,6 +450,12 @@
     "body": ["player.camera(Enum.Camera.${1|Player,Drone,Base,World|})"],
     "description": "Changes the target subject the camera is looking at. Default is Player."
   },
+  "player.cameraMode": {
+    "prefix": "player.cameraMode",
+    "body": ["player.cameraMode(${1:Enum.CameraMode})"],
+    "description": "Changes the behavioral mode of the camera. Requires an Enum.CameraMode value (Classic, Follow, Stable, Attach, Fixed). The default is Classic."
+  },
+  
   "player - camera follow drone example": {
     "prefix": "player.cameraFollowDroneExample",
     "body": [
@@ -408,7 +471,6 @@
 
 
 
-  
   "market.getSeedStockTime": {
     "prefix": "market.getSeedStockTime",
     "body": ["market.getSeedStockTime()"],
@@ -421,12 +483,12 @@
   },
   "market.getSeedPrice": {
     "prefix": "market.getSeedPrice",
-    "body": ["market.getSeedPrice(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "body": ["market.getSeedPrice(${1:Enum.Seed.Wheat})"],
     "description": "Returns the purchase price of the specified seed."
   },
   "market.buySeed": {
     "prefix": "market.buySeed",
-    "body": ["market.buySeed(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "body": ["market.buySeed(${1:Enum.Seed.Wheat})"],
     "description": "Purchases the specified seed. Returns true if successful."
   },
   "market - smart seed purchase example": {
@@ -562,6 +624,21 @@
     "description": "Instantly disconnects and reconnects to the same server. Useful for fixing desyncs."
   },
 
+  "task.time": {
+    "prefix": "task.time",
+    "body": ["task.time()"],
+    "description": "Returns the total time elapsed since January 1, 1970, in seconds (Unix timestamp) as a number. Highly useful for future time calculations."
+  },
+  "task.clock": {
+    "prefix": "task.clock",
+    "body": ["task.clock()"],
+    "description": "Returns a highly precise time value with millisecond sensitivity. Ideal for measuring the time elapsed between two operations (to see how fast your code runs)."
+  },
+  "task.date": {
+    "prefix": "task.date",
+    "body": ["task.date(${1:seconds?})"],
+    "description": "Converts numerical time data into a readable string format (Year-Month-Day Hour:Min:Sec). if no number is provided, it returns the current real time directly."
+  },
   "task.wait": {
     "prefix": "task.wait",
     "body": ["task.wait(${1:1})"],
@@ -639,7 +716,11 @@
     "body": ["list.find(${1:list}, ${2:value})"],
     "description": "Searches for a piece of data within the list. if found, it returns the index (number) of that data; if not found, it returns 'null'."
   },
-
+  "list.sort": {
+    "prefix": "list.sort",
+    "body": ["list.sort(${1:list}, ${2:func?})"],
+    "description": "Sorts the elements in the list. By default, it sorts in ascending order. You can optionally provide a custom comparison function as the second argument."
+  },
 
   "Enum.Seed": {
     "prefix": "Enum.Seed",
@@ -742,6 +823,35 @@
     "body": ["Enum.ClickType.Left"],
     "description": "ClickType enum: Left"
   },
+
+  "Enum.CameraMode.Attach": {
+    "prefix": "Enum.CameraMode.Attach",
+    "body": ["Enum.CameraMode.Attach"],
+    "description": "CameraMode enum: Attach"
+  },
+  "Enum.ClickType.Classic": {
+    "prefix": "Enum.ClickType.Classic",
+    "body": ["Enum.ClickType.Classic"],
+    "description": "ClickType enum: Classic"
+  },
+    "Enum.CameraMode.Follow": {
+    "prefix": "Enum.CameraMode.Follow",
+    "body": ["Enum.CameraMode.Follow"],
+    "description": "CameraMode enum: Follow"
+  },
+    "Enum.CameraMode.Stable": {
+    "prefix": "Enum.CameraMode.Stable",
+    "body": ["Enum.CameraMode.Stable"],
+    "description": "CameraMode enum: Stable"
+  },
+    "Enum.CameraMode.Fixed": {
+    "prefix": "Enum.CameraMode.Fixed",
+    "body": ["Enum.CameraMode.Fixed"],
+    "description": "CameraMode enum: Fixed"
+  },
+
+
+
 
 
   "varol declaration": {
