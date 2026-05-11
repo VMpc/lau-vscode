@@ -168,7 +168,7 @@
   },
   "drone.plant": {
     "prefix": "drone.plant",
-    "body": ["drone.plant(Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|})"],
+    "body": ["drone.plant(Enum.Seed})"],
     "description": "Plants the specified seed into the soil beneath the drone."
   },
   "drone.useItem": {
@@ -724,7 +724,7 @@
 
   "Enum.Seed": {
     "prefix": "Enum.Seed",
-    "body": ["Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|}"],
+    "body": ["Enum.Seed.${1|Wheat,Bamboo,Coconut,Mushroom,Tomato,Bush,Pumpkin,Pear,Pepper,Cacao,Glttch,Apple,Lotus,Lemon,Onion,Tree,Pineapple,Blueberry,Carrot,Corn,Cactus,Strawberry,Watermelon,Grape,Potato,Banana|}"],
     "description": "Seed enum: Pick a seed type."
   },
   "Enum.Seed.Wheat": { "prefix": "Enum.Seed.Wheat", "body": ["Enum.Seed.Wheat"], "description": "Seed enum: Wheat" },
@@ -734,6 +734,7 @@
   "Enum.Seed.Tomato": { "prefix": "Enum.Seed.Tomato", "body": ["Enum.Seed.Tomato"], "description": "Seed enum: Tomato" },
   "Enum.Seed.Bush": { "prefix": "Enum.Seed.Bush", "body": ["Enum.Seed.Bush"], "description": "Seed enum: Bush" },
   "Enum.Seed.Pumpkin": { "prefix": "Enum.Seed.Pumpkin", "body": ["Enum.Seed.Pumpkin"], "description": "Seed enum: Pumpkin" },
+  "Enum.Seed.Pear": { "prefix": "Enum.Seed.Pear", "body": ["Enum.Seed.Pear"], "description": "Seed enum: Pear" },
   "Enum.Seed.Pepper": { "prefix": "Enum.Seed.Pepper", "body": ["Enum.Seed.Pepper"], "description": "Seed enum: Pepper" },
   "Enum.Seed.Cacao": { "prefix": "Enum.Seed.Cacao", "body": ["Enum.Seed.Cacao"], "description": "Seed enum: Cacao" },
   "Enum.Seed.Glttch": { "prefix": "Enum.Seed.Glttch", "body": ["Enum.Seed.Glttch"], "description": "Seed enum: Glttch" },
