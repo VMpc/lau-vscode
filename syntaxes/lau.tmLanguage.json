@@ -86,11 +86,11 @@
         },
         {
           "name": "support.function.droneV2.lau",
-          "match": "\\b(droneV2)\\.(doBig|doSpin|doWobble|goto|isLocked|lock|unlock)\\b"
+          "match": "\\b(droneV2)\\.(doBig|doSpin|doWobble|goto|isLocked|lock|unlock|swap)\\b"
         },
         {
           "name": "support.function.player.lau",
-          "match": "\\b(player)\\.(getFruitCount|getInventorysize|getInventory|getItem|geTileNumber|calculateFinalScrap|scrap|alert|sent|chatted|input|getcurrentTile|getCurrentTile|camera|cameraMode)\\b"
+          "match": "\\b(player)\\.(getFruitCount|getInventorysize|getInventory|getItem|geTileNumber|calculateFinalScrap|scrap|alert|sent|chatted|input|getcurrentTile|getCurrentTile|camera|cameraMode|getFruitCapacity|CameraMode)\\b"
         },
         {
           "name": "support.function.playerV2.lau",
@@ -106,15 +106,19 @@
         },
         {
           "name": "support.function.list.lau",
-          "match": "\\b(player)\\.(insert|remove|clear|check|find)\\b"
+          "match": "\\b(player)\\.(insert|remove|clear|check|find|sort)\\b"
+        },
+        {
+          "name": "support.function.data.lau",
+          "match": "\\b(player)\\.(save|load|clear)\\b"
         },
         {
           "name": "support.function.game.lau",
-          "match": "\\b(game)\\.(weather|weatherDuration|changedWeather|rejoin)\\b"
+          "match": "\\b(game)\\.(weather|weatherDuration|changedWeather|rejoin|uptime|version|lauversion|players)\\b"
         },
         {
           "name": "support.function.task.lau",
-          "match": "\\b(task)\\.(wait)\\b"
+          "match": "\\b(task)\\.(wait|time|date|clock)\\b"
         },
         {
           "name": "support.function.math.lau",
