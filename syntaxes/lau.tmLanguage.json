@@ -62,15 +62,11 @@
         },
         {
           "name": "keyword.control.lau",
-          "match": "\\b(if|then|else|elseif|end|do|while|for|in|return|break)\\b"
-        },
-        {
-          "name": "keyword.operator.logical.lau",
-          "match": "\\b(AND|OR|NOT)\\b"
+          "match": "\\b(if|then|else|elseif|end|do|while|for|in|return|continue|break)\\b"
         },
         {
           "name": "keyword.other.lau",
-          "match": "\\b(local|true|false|null|nil)\\b"
+          "match": "\\b(AND|OR|NOT|true|false|null|nil)\\b"
         }
       ]
     },
