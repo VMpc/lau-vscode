@@ -372,7 +372,7 @@
   },
   "player.getCurrentTile": {
     "prefix": "player.getCurrentTile",
-    "body": ["player.getcurrentTile()"],
+    "body": ["player.getCurrentTile()"],
     "description": "Returns the grid coordinates (X, Z) of the tile the player is standing on. Returns null if outside the farm area."
   },
   "player - location check example": {
