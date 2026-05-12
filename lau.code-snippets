@@ -377,7 +377,7 @@
   },
   "player.getTileNumber": {
     "prefix": "player.getTileNumber",
-    "body": ["player.geTileNumber()"],
+    "body": ["player.getTileNumber()"],
     "description": "Returns the player's land size (Upgrade Level)."
   },
   "player.calculateFinalScrap": {
