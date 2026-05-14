@@ -2,7 +2,8 @@
 
 Provides **syntax highlighting** and **IntelliSense snippets** for the `.lau` scripting language from the game Plant with Coding!
 ---
-<img width="727" height="372" alt="image" src="https://github.com/user-attachments/assets/06cf3b82-a38f-437f-a483-a54cfa5b4c16" />
+<img width="640" height="320" alt="demo" src="https://github.com/user-attachments/assets/15f3cd5f-8ad2-40dd-89ff-a4ffbf860867" />
+
 
 ---
 
