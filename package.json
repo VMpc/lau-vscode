@@ -1,15 +1,18 @@
 {
+  "icon": "./themes/icons/lau.png",
   "__metadata": {
     "id": "lau-language-support",
     "publisherId": "sean0x",
     "publisherDisplayName": "sean0x"
   },
-  "icon": "./icon.png",
   "name": "lau-language-support",
   "displayName": "LAU Language Support",
   "description": "Syntax highlighting, snippets, and IntelliSense for the LAU scripting language",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "publisher": "sean0x",
+  "contributors": [
+    "ArinZima"
+  ],
   "engines": {
     "vscode": "*"
   },
@@ -22,7 +25,21 @@
       {
         "id": "lau",
         "aliases": ["LAU", "lau"],
-        "extensions": [".lau", ".laum"],
+        "extensions": [".lau"],
+        "icon": {
+          "dark": "./themes/icons/lau.svg",
+          "light": "./themes/icons/lau.svg"
+        },
+        "configuration": "./language-configuration.json"
+      },
+      {
+        "id": "laum",
+        "aliases": ["LAUM", "laum"],
+        "extensions": [".laum"],
+        "icon": {
+          "dark": "./themes/icons/laum.svg",
+          "light": "./themes/icons/laum.svg"
+        },
         "configuration": "./language-configuration.json"
       }
     ],
@@ -31,11 +48,20 @@
         "language": "lau",
         "scopeName": "source.lau",
         "path": "./syntaxes/lau.tmLanguage.json"
+      },
+      {
+        "language": "laum",
+        "scopeName": "source.lau",
+        "path": "./syntaxes/lau.tmLanguage.json"
       }
     ],
     "snippets": [
       {
         "language": "lau",
+        "path": "./lau.code-snippets"
+      },
+      {
+        "language": "laum",
         "path": "./lau.code-snippets"
       }
     ]
