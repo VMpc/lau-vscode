@@ -1,6 +1,7 @@
 # [Plant with Coding ] LAU Language Support — VSCode Extension
 
 Provides **syntax highlighting** and **IntelliSense snippets** for the `.lau` scripting language from the game Plant with Coding!
+---
 <img width="727" height="372" alt="image" src="https://github.com/user-attachments/assets/06cf3b82-a38f-437f-a483-a54cfa5b4c16" />
 
 ---
@@ -34,6 +35,8 @@ Provides **syntax highlighting** and **IntelliSense snippets** for the `.lau` sc
 
 # Contributing
 Contributing is greatly appreciated! do if you can.
+
+- Thank you arinzima for the icons of the extension!
 
 # Missing features
 All of the functions from the game are already added, as of 11/05/2026
