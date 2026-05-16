@@ -345,7 +345,7 @@
   },
   "player.getInventorySize": {
     "prefix": "player.getInventorySize",
-    "body": ["player.getInventorysize()"],
+    "body": ["player.getInventorySize()"],
     "description": "Returns the total number of all item types (fruit, seeds, etc.) in the inventory."
   },
   "player.getInventory": {
