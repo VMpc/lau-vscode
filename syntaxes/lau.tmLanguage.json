@@ -90,7 +90,7 @@
         },
         {
           "name": "support.function.player.lau",
-          "match": "\\b(player)\\.(getFruitCount|getInventorysize|getInventory|getItem|getTileNumber|calculateFinalScrap|scrap|alert|sent|chatted|input|getcurrentTile|getCurrentTile|camera|cameraMode|getFruitCapacity|CameraMode)\\b"
+          "match": "\\b(player)\\.(getFruitCount|getInventorySize|getInventory|getItem|getTileNumber|calculateFinalScrap|scrap|alert|sent|chatted|input|getcurrentTile|getCurrentTile|camera|cameraMode|getFruitCapacity|CameraMode)\\b"
         },
         {
           "name": "support.function.playerV2.lau",
